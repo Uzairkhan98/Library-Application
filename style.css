@@ -1,0 +1,74 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-color: #171923;
+    --bg-light: #232535;
+    --font-color: #c5cddb;
+    --font-light: #ffffff;
+    --transitionVar: all 500ms;
+    --button-hover: lightskyblue;
+}
+.lightMode {
+  --bg-color: #E8E6DC;
+  --bg-light: #DCDACA;
+  --font-color: #3D3D3D;
+--button-hover: rgb(72, 0, 255);
+    --font-light: #202020;
+}
+
+body {
+    color: var(--font-light);
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--bg-color);
+    transition: var(--transitionVar);
+}
+p {
+    color: var(--font-color);
+}
+button {
+	border: none;
+    background-color: var(--bg-color);
+    transition: var(--transitionVar);
+    color: var(--font-light);
+    font-size: large;
+}
+
+header{
+    display: flex;
+    justify-content: space-around;
+    padding: 2rem;
+    align-items: center;
+}
+header  img {
+    height: 3rem;
+}
+
+footer{
+    position: absolute;
+    bottom: 0;
+}
+main{
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+#addBook{
+    padding: 1rem;
+    border-radius: 5px;
+    border: 2px solid var(--font-light);
+    padding-inline: 2rem;
+}
+
+#addBook:hover, #addbook:focus{
+    outline: none;
+  box-shadow: 0 0 0 2px var(--button-hover) ;
+}
+
+#bookForm{
+    display: none;
+}
