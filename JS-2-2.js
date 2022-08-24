@@ -25,7 +25,7 @@ function modeSwitch() {
 }
 
 function toggleForm() {
-    let form = document.getElementById("bookForm")
+    let form = document.getElementById("form-container")
     if (form.style.display === "none" ) {
         form.style.display = "block";
       } else {
