@@ -32,3 +32,20 @@ function toggleForm() {
         form.style.display = "none";
       }
 }
+
+function formSubmission() {
+  let formValues = []
+  let form = document.querySelector("form");
+  Array.from(form.elements).forEach(
+    element => element.className === "checkbox" ? 
+      formValues.push(element.checked) : 
+      formValues.push(element.value) 
+  )
+  formValues.pop()
+  console.log(formValues)
+  let book = new Book(...formValues)
+  console.log(book)
+  console.log(book.info())
+  form.reset();
+  toggleForm()
+}
