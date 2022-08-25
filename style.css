@@ -47,6 +47,10 @@ header  img {
     height: 3rem;
 }
 
+header h1{
+    text-align: center;
+}
+
 footer{
     position: absolute;
     bottom: 0;
@@ -74,7 +78,7 @@ main{
     z-index: 1000;
 	position: absolute;
     width: max(40vw,300px);
-    height: 60vh;
+    height: fit-content;
     backdrop-filter: blur(100vh);
     border-radius: 20px;
 }
@@ -89,7 +93,7 @@ main{
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    width: max(35vw,250px);
+    width: max(30vw,250px);
 }
 form{
     margin: 20px;
@@ -115,7 +119,7 @@ label{
 .input-subgroup{
     display: flex;
     flex-direction: column;
-    width: max(35vw,250px);
+    width: max(30vw,250px);
     gap: 0.5rem;
 }
 
@@ -143,7 +147,7 @@ input[type="checkbox"] {
     width: 0.6em;
     height: 0.6em;
     transform: scale(0);
-    transition: 500ms transform ease-in-out;
+    transition: 125ms transform ease-in-out;
     background-color: #3D3D3D;
     transform-origin: bottom left;
     clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
@@ -151,3 +155,14 @@ input[type="checkbox"] {
   input[type="checkbox"]:checked::before {
     transform: scale(1);
   }
+
+  #submit-book{
+    padding: 0.8rem;
+    border-radius: 5px;
+    border: 2px solid var(--font-light);
+    margin-bottom: 1rem;
+}
+#submit-book:hover, #addbook:focus{
+    outline: none;
+  box-shadow: 0 0 0 2px var(--button-hover) ;
+}
