@@ -55,6 +55,7 @@ footer{
     position: absolute;
     margin-top: 2rem;
     display: flex;
+    bottom: 0%;
 }
 main{
     display: flex;
@@ -171,7 +172,7 @@ label{
 }
 
 .book-container{
-    margin-top: 4rem;
+    margin-top: 2rem;
     width: min(80vw,1000px);
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -204,14 +205,29 @@ label{
 #remove-button{
     padding: 0.5rem;
     border-radius: 10px;
-    background-color: red;
+    background-color: rgba(255, 0, 0, 0.475);
+    color: var(--bg-light);
+    border: 2px solid var(--bg-light);
+    padding-inline: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+#remove-button:hover, #remove-button:focus{
+    outline: none;
+  box-shadow: 0 0 0 2px var(--button-hover) ;
+}
+
+#read-button{
+    padding: 0.5rem;
+    border-radius: 10px;
+    background-color: rgba(0, 128, 0, 0.47);
     color: var(--bg-light);
     border: 2px solid var(--bg-light);
     padding-inline: 2rem;
     margin-top: 1rem;
 }
 
-#remove-button:hover, #remove-button:focus{
+#read-button:hover, #read-button:focus{
     outline: none;
   box-shadow: 0 0 0 2px var(--button-hover) ;
 }

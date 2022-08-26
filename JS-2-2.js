@@ -1,3 +1,5 @@
+let myLibrary = []
+
 function Book(title, author, pages, read) {
     this.title = title,
     this.author = author,
@@ -38,10 +40,46 @@ function formSubmission() {
       formValues.push(element.value) 
   )
   formValues.pop()
-  console.log(formValues)
   let book = new Book(...formValues)
-  console.log(book)
-  console.log(book.info())
+  myLibrary.push(book)
   form.reset();
-  toggleForm()
+  toggleForm();
+  createLibrary();
 }
+
+function createLibrary(){
+  const container = document.querySelector('.book-container')
+  let elements = myLibrary.map( book => {
+
+    const article = document.createElement('article')
+    article.classList.add('book-details')
+
+    const title = document.createElement('h4')
+    title.textContent = book.title
+
+    const author = document.createElement('h4')
+    author.textContent = `By ${book.author}`
+    
+    const pages = document.createElement('h4')
+    pages.textContent = `${book.pages} pages`
+
+    const readButton = document.createElement('button')
+    readButton.setAttribute("id" , 'read-button')
+    readButton.textContent = "Mark as Read"
+
+    const removeButton = document.createElement('button')
+    removeButton.setAttribute("id" , 'remove-button')
+    removeButton.textContent = "Remove Book"
+
+    article.appendChild(title)
+    article.appendChild(author)
+    article.appendChild(pages)
+    article.appendChild(readButton)
+    article.appendChild(removeButton)
+
+    return article
+
+  })
+
+  container.replaceChildren(...elements);
+3}
