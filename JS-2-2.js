@@ -74,7 +74,7 @@ function createLibrary(){
     article.appendChild(readButton)
     article.appendChild(removeButton)
 
-    article.setAttribute('style', `border:  solid 2px ${book.read ? 'green' : 'red'}`);    
+    article.setAttribute('style', `border:  solid 3px ${book.read ? 'green' : 'red'}`);    
 
     return article
 
