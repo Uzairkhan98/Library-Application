@@ -48,6 +48,7 @@ function formSubmission() {
 }
 
 function createLibrary(){
+  console.log(myLibrary)
   const container = document.querySelector('.book-container')
   let elements = myLibrary.map( book => {
 
@@ -76,6 +77,9 @@ function createLibrary(){
     article.appendChild(pages)
     article.appendChild(readButton)
     article.appendChild(removeButton)
+
+    article.setAttribute('style', `border:  solid 2px ${book.read ? 'green' : 'red'}`);    
+
 
     return article
 
