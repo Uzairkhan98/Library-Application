@@ -31,10 +31,11 @@ function formSubmission() {
 function createLibrary(){
   console.log(myLibrary)
   const container = document.querySelector('.book-container')
-  let elements = myLibrary.map( book => {
+  let elements = myLibrary.map( (book,i) => {
 
     const article = document.createElement('article')
     article.classList.add('book-details')
+    article.setAttribute('data-index', i)
 
     const title = document.createElement('h4')
     title.textContent = book.title
@@ -56,13 +57,15 @@ function createLibrary(){
     else{
       readButton.setAttribute('style', 'background-color: rgba(0, 128, 0, 0.47)') ;
       readButton.setAttribute('onClick', 'check()')
+      readButton.setAttribute('data-index',i) ;
     }
 
 
     const removeButton = document.createElement('button')
     removeButton.setAttribute("id" , 'remove-button')
     removeButton.textContent = "Remove Book"
-    readButton.setAttribute('onClick', 'removeBook()')
+    removeButton.setAttribute('data-index',i) ;
+    removeButton.setAttribute('onClick', 'removeBook(event)')
     
 
     article.appendChild(title)
@@ -100,12 +103,8 @@ function toggleForm() {
       }
 }
 
-document.querySelectorAll('#read-button').forEach(el => {
-  el.addEventListener('click', e => {
-    console.log(e)
-  })
-})
-
-function check(){
-  console.log('hello world')
+function removeBook(event){
+  bookIndex = event.target.getAttribute('data-index')
+  myLibrary = myLibrary.filter((book,i) => i!=bookIndex)
+  createLibrary()
 }
