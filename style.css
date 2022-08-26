@@ -53,12 +53,14 @@ header h1{
 
 footer{
     position: absolute;
-    bottom: 0;
+    margin-top: 2rem;
+    display: flex;
 }
 main{
     display: flex;
-    justify-content: center;
     margin-top: 2rem;
+    flex-direction: column;
+    align-items: center;
 }
 
 #addBook{
@@ -81,6 +83,7 @@ main{
     height: fit-content;
     backdrop-filter: blur(100vh);
     border-radius: 20px;
+  box-shadow: 0 0 0 2px var(--font-light) ;
 }
 
 .form-main{
@@ -123,7 +126,7 @@ label{
     gap: 0.5rem;
 }
 
-input[type="checkbox"] {
+#read {
     /* Add if not using autoprefixer */
     -webkit-appearance: none;
     appearance: none;
@@ -142,7 +145,7 @@ input[type="checkbox"] {
     place-content: center;
   }
 
-  input[type="checkbox"]::before {
+ #read::before {
     content: "";
     width: 0.6em;
     height: 0.6em;
@@ -152,7 +155,7 @@ input[type="checkbox"] {
     transform-origin: bottom left;
     clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
   }
-  input[type="checkbox"]:checked::before {
+ #read:checked::before {
     transform: scale(1);
   }
 
@@ -163,6 +166,52 @@ input[type="checkbox"] {
     margin-bottom: 1rem;
 }
 #submit-book:hover, #addbook:focus{
+    outline: none;
+  box-shadow: 0 0 0 2px var(--button-hover) ;
+}
+
+.book-container{
+    margin-top: 4rem;
+    width: min(80vw,1000px);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    height: min-content;
+    gap: 2rem;
+}
+
+.book-details{
+    background-color: var(--font-light);
+    color:var(--bg-light);
+    padding: 1.2rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align:center;
+    text-transform: capitalize;
+    border: solid 2px green;
+    align-items: center;
+}
+
+.book-container .book-details .checkbox-input {
+    padding-top: 1rem;
+}
+
+.book-details p{
+    color:var(--bg-light)
+}
+
+#remove-button{
+    padding: 0.5rem;
+    border-radius: 10px;
+    background-color: red;
+    color: var(--bg-light);
+    border: 2px solid var(--bg-light);
+    padding-inline: 2rem;
+    margin-top: 1rem;
+}
+
+#remove-button:hover, #remove-button:focus{
     outline: none;
   box-shadow: 0 0 0 2px var(--button-hover) ;
 }

@@ -9,10 +9,6 @@ function Book(title, author, pages, read) {
     }
 }
 
-let HP = new Book('Harry Potter', 'J.K. Rowling', '300', 1)
-
-console.log(HP.info())
-
 let isLight = true;
 
 function modeSwitch() {
