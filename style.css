@@ -108,7 +108,7 @@ main{
 .input-group{
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.5rem;
     width: max(30vw,250px);
 }
 form{
@@ -176,7 +176,6 @@ label{
     padding: 0.8rem;
     border-radius: 5px;
     border: 2px solid var(--font-light);
-    margin-bottom: 1rem;
 }
 #submit-book:hover, #addbook:focus{
     outline: none;

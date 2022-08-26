@@ -12,20 +12,30 @@ function Book(title, author, pages, read) {
 }
 
 
-function formSubmission() {
+function formSubmission(event) {
+  event.preventDefault()
   let formValues = []
   let form = document.querySelector("form");
-  Array.from(form.elements).forEach(
-    element => element.className === "checkbox" ? 
-      formValues.push(element.checked) : 
-      formValues.push(element.value) 
-  )
-  formValues.pop()
+  Array.from(form.elements).forEach
+  (element => {
+      if(element.className === 'checkbox')
+        formValues.push(element.checked)
+      else if (element.value.length>0)
+        formValues.push(element.value) 
+  })
+      
+  if(formValues.length != 4)
+    return
   let book = new Book(...formValues)
   myLibrary.push(book)
   form.reset();
   toggleForm();
   createLibrary();
+}
+
+function closeForm(){
+  form.reset();
+  toggleForm();
 }
 
 function createLibrary(){
