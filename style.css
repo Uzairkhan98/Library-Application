@@ -53,14 +53,13 @@ header h1{
 }
 
 footer{
-    margin-top: 2rem;
+    position: fixed;
     display: flex;
     width: 100vw;
     justify-content: center;
     background-color: var(--font-light);
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
-    position: fixed;
     bottom: 0%;
 }
 
@@ -69,6 +68,7 @@ footer h3 {
 }
 
 main{
+    position: relative;
     display: flex;
     margin-top: 2rem;
     flex-direction: column;
