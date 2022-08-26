@@ -11,25 +11,6 @@ function Book(title, author, pages, read) {
     }
 }
 
-let isLight = true;
-
-function modeSwitch() {
-  isLight = !isLight;
-  let root = document.body;
-  
-  isLight ? toggle.innerText = "🌞" : toggle.innerText = "🌚";
-  
-  root.classList.toggle("lightMode");
-}
-
-function toggleForm() {
-    let form = document.getElementById("form-container")
-    if (form.style.display === "none" ) {
-        form.style.display = "block";
-      } else {
-        form.style.display = "none";
-      }
-}
 
 function formSubmission() {
   let formValues = []
@@ -68,9 +49,21 @@ function createLibrary(){
     readButton.setAttribute("id" , 'read-button')
     readButton.textContent = "Mark as Read"
 
+    if(book.read){
+      readButton.setAttribute('style', 'background-color: gray') ;
+      readButton.disabled
+    }
+    else{
+      readButton.setAttribute('style', 'background-color: rgba(0, 128, 0, 0.47)') ;
+      readButton.setAttribute('onClick', 'check()')
+    }
+
+
     const removeButton = document.createElement('button')
     removeButton.setAttribute("id" , 'remove-button')
     removeButton.textContent = "Remove Book"
+    readButton.setAttribute('onClick', 'removeBook()')
+    
 
     article.appendChild(title)
     article.appendChild(author)
@@ -80,10 +73,39 @@ function createLibrary(){
 
     article.setAttribute('style', `border:  solid 2px ${book.read ? 'green' : 'red'}`);    
 
-
     return article
 
   })
-
   container.replaceChildren(...elements);
-3}
+}
+
+
+let isLight = true;
+
+function modeSwitch() {
+  isLight = !isLight;
+  let root = document.body;
+  
+  isLight ? toggle.innerText = "🌞" : toggle.innerText = "🌚";
+  
+  root.classList.toggle("lightMode");
+}
+
+function toggleForm() {
+    let form = document.getElementById("form-container")
+    if (form.style.display === "none" ) {
+        form.style.display = "block";
+      } else {
+        form.style.display = "none";
+      }
+}
+
+document.querySelectorAll('#read-button').forEach(el => {
+  el.addEventListener('click', e => {
+    console.log(e)
+  })
+})
+
+function check(){
+  console.log('hello world')
+}
