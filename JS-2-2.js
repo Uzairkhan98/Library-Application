@@ -56,7 +56,7 @@ function createLibrary(){
     }
     else{
       readButton.setAttribute('style', 'background-color: rgba(0, 128, 0, 0.47)') ;
-      readButton.setAttribute('onClick', 'check()')
+      readButton.setAttribute('onClick', 'readBook(event)')
       readButton.setAttribute('data-index',i) ;
     }
 
@@ -106,5 +106,15 @@ function toggleForm() {
 function removeBook(event){
   bookIndex = event.target.getAttribute('data-index')
   myLibrary = myLibrary.filter((book,i) => i!=bookIndex)
+  createLibrary()
+}
+
+function readBook(event){
+  bookIndex = event.target.getAttribute('data-index')
+  myLibrary = myLibrary.map((book,i) => {
+    if(i==bookIndex) 
+      book.read = true
+    return book
+  })
   createLibrary()
 }
