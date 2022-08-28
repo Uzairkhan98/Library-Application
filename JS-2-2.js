@@ -34,6 +34,7 @@ function formSubmission(event) {
 }
 
 function closeForm(){
+  let form = document.querySelector("form");
   form.reset();
   toggleForm();
 }
